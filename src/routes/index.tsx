@@ -55,12 +55,18 @@ function Index() {
           <div className="flex items-center gap-3">
             <Select value={model} onValueChange={(v) => setModel(v as ModelId)}>
               <SelectTrigger className="w-[220px]">
-                <SelectValue placeholder="Detection model" />
+                {/* Explicit label keeps the trigger readable on first paint */}
+                <SelectValue placeholder="Detection model">
+                  {MODEL_OPTIONS.find((m) => m.id === model)?.label}
+                </SelectValue>
               </SelectTrigger>
               <SelectContent>
                 {MODEL_OPTIONS.map((m) => (
                   <SelectItem key={m.id} value={m.id}>
-                    {m.label} — {m.hint}
+                    <span className="flex flex-col">
+                      <span>{m.label}</span>
+                      <span className="text-xs text-muted-foreground">{m.hint}</span>
+                    </span>
                   </SelectItem>
                 ))}
               </SelectContent>
