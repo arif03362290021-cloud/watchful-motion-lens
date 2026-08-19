@@ -75,7 +75,6 @@ export function drawTracks(
     const boxY = Math.max(0, y - 22);
     ctx.fillStyle = color;
     ctx.fillRect(x - 1.5, boxY, textWidth + 12, 22);
-    ctx.fillStyle = "#0b0fial".slice(0, 7);
     ctx.fillStyle = "#080b12";
     ctx.fillText(label, x + 4.5, boxY + 4);
   }
